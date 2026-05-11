@@ -3,50 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Efeito Smoky</title>
+    <title>Efeito Smoky Letra por Letra</title>
     <style>
         body {
             margin: 0;
-            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background-color: #111; /* Fundo escuro para destacar a fumaça */
-            font-family: 'Arial', sans-serif;
+            background-color: #000;
             overflow: hidden;
+            font-family: 'Arial Black', sans-serif;
         }
 
-        .smoky-text {
-            color: white;
-            font-size: 8rem;
+        .container {
+            display: flex;
+        }
+
+        .container span {
+            color: #fff;
+            font-size: 6rem;
             font-weight: bold;
-            letter-spacing: 10px;
-            cursor: default;
-            transition: 1.5s ease-out; /* Transição suave de volta */
+            display: inline-block;
+            transition: 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+            cursor: pointer;
         }
 
-        /* O truque acontece aqui no hover */
-        .smoky-text:hover {
-            /* Move para cima e para a direita (diagonal) */
-            transform: translate(50px, -100px) skewX(20deg);
-            
-            /* Torna o texto transparente */
+        /* Efeito ao passar o mouse no CONTAINER (afeta as letras) */
+        .container:hover span {
+            transform: translate(60px, -150px) rotate(30deg) scale(1.5);
             color: transparent;
-            
-            /* Cria o efeito de fumaça usando múltiplos text-shadows */
-            text-shadow: 
-                0 0 40px rgba(255, 255, 255, 0.8),
-                10px -10px 60px rgba(255, 255, 255, 0.5),
-                -10px -20px 80px rgba(255, 255, 255, 0.2);
-            
+            text-shadow: 0 0 50px #fff;
             opacity: 0;
+            filter: blur(20px);
         }
+
+        /* Atrasos individuais para criar a sequência de fumaça */
+        .container span:nth-child(1) { transition-delay: 0s; }
+        .container span:nth-child(2) { transition-delay: 0.1s; }
+        .container span:nth-child(3) { transition-delay: 0.2s; }
+        .container span:nth-child(4) { transition-delay: 0.3s; }
+        .container span:nth-child(5) { transition-delay: 0.4s; }
+
     </style>
 </head>
 <body>
 
-    <div class="smoky-text">SMOKY</div>
+    <div class="container">
+        <span>S</span>
+        <span>M</span>
+        <span>O</span>
+        <span>K</span>
+        <span>Y</span>
+    </div>
 
 </body>
 </html>
